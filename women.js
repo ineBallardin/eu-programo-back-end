@@ -27,10 +27,10 @@ const showWomen = async (request, response) => {
 
 const createWoman = async (request, response) => {
     const newWoman = new Woman({
-        name: request.body.name,
-        image: request.body.image,
+        nome: request.body.nome,
+        imagem: request.body.imagem,
         minibio: request.body.minibio,
-        quote: request.body.quote
+        citacao: request.body.citacao
     })
 
     try{
@@ -46,20 +46,20 @@ const editWoman = async (request, response) => {
     try {
         const womanFound = await Woman.findById(request.params.id)
 
-        if (request.body.name) {
-            womanFound.name = request.body.name
+        if (request.body.nome) {
+            womanFound.nome = request.body.nome
         }
         
-        if (request.body.image) {
-            womanFound.image = request.body.image
+        if (request.body.imagem) {
+            womanFound.imagem = request.body.imagem
         }
         
         if (request.body.minibio) {
             womanFound.minibio = request.body.minibio
         }
 
-        if (request.body.quote) {
-            womanFound.quote = request.body.quote
+        if (request.body.citacao) {
+            womanFound.citacao = request.body.citacao
         }
         
         const updatedDBWoman = await womanFound.save()
